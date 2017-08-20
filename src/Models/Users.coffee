@@ -53,4 +53,17 @@ class Users extends BaseModel
       search: emailOrUsername
     @get "users", params, (data) -> fn data if fn
 
+  tokens: (userId, fn = null) =>
+    @debug "Users::tokens(#{userId})"
+    @get "users/#{parseInt(userId)}/impersonation_tokens", (data) -> fn data if fn
+
+  createToken: (userId, tokenName, fn = null) =>
+    @debug "Users::createToken(#{userId}, #{tokenName})"
+    params =
+      user_id: userId,
+      name: tokenName,
+      scopes: ["api", "read_user"]
+    @post "users/#{parseInt(userId)}/impersonation_tokens", params, (data) -> fn data if fn
+
+
 module.exports = (client) -> new Users client
