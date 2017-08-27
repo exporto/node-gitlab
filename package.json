@@ -16,16 +16,16 @@
     "url": "https://github.com/node-gitlab/node-gitlab"
   },
   "dependencies": {
-    "debug": "*",
-    "slumber": "0.9.0"
+    "debug": "^3.0.1",
+    "slumber": "^0.11.0"
   },
   "devDependencies": {
+    "chai": "^4.1.1",
     "coffee-script": ">=1.9.1",
     "mocha": "",
-    "proxyquire": "~1.0.1",
-    "chai": "~1.9.2",
-    "sinon": "~1.10.3",
-    "sinon-chai": "~2.6.0"
+    "proxyquire": "~1.8.0",
+    "sinon": "~3.2.1",
+    "sinon-chai": "~2.13.0"
   },
   "keywords": [
     "gitlab",

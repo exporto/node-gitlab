@@ -82,7 +82,7 @@
       });
       return it("should recurse if more than 100 records are returned", function() {
         var getStub;
-        getStub = sinon.stub(projects, "get", function(a, b, c) {
+        getStub = sinon.stub(projects, 'get').callsFake(function(a, b, c) {
           if (getStub.callCount < 3) {
             return c(null, arrayOf100);
           } else {

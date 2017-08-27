@@ -69,11 +69,12 @@ describe "Projects", ->
       expect(getStub).to.have.been.called
 
     it "should recurse if more than 100 records are returned", ->
-      getStub = sinon.stub projects, "get", (a,b,c)->
+      getStub = sinon.stub(projects, 'get').callsFake((a, b, c) ->
         if getStub.callCount < 3
           c null, arrayOf100
         else
           c null, arrayOf99
+      )
 
       projects.all()
 
