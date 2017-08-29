@@ -9,6 +9,6 @@ class UserKeys extends BaseModel
       title: title
       key: key
 
-    @post "users/#{userId}/keys", params, (data) -> fn data if fn
+    @post "users/#{userId}/keys", params, (err, data) -> fn(err, data) if fn
 
 module.exports = (client) -> new UserKeys client
