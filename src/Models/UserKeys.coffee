@@ -11,4 +11,7 @@ class UserKeys extends BaseModel
 
     @post "users/#{userId}/keys", params, (err, data) -> fn(err, data) if fn
 
+  delKey: (userId, keyId, fn = null) =>
+    @delete "users/#{userId}/keys/#{keyId}", (err, result) -> fn(err, result) if fn
+
 module.exports = (client) -> new UserKeys client
