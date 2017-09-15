@@ -84,7 +84,7 @@ class Groups extends BaseModel
 
   create: (params = {}, fn = null) =>
     @debug "Groups::create()"
-    @post "groups", params, (data) -> fn data if fn
+    @post "groups", params, (err, data) -> fn(err, data) if fn
 
   addProject: (groupId, projectId, fn = null) =>
     @debug "Groups::addProject(#{groupId}, #{projectId})"
