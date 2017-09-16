@@ -88,7 +88,7 @@ class Groups extends BaseModel
 
   addProject: (groupId, projectId, fn = null) =>
     @debug "Groups::addProject(#{groupId}, #{projectId})"
-    @post "groups/#{parseInt groupId}/projects/#{parseInt projectId}", null, (data) -> fn data if fn
+    @post "groups/#{parseInt groupId}/projects/#{parseInt projectId}", null, (err, data) -> fn(err, data) if fn
 
   deleteGroup: (groupId, fn = null) =>
     @debug "Groups::delete(#{groupId})"
