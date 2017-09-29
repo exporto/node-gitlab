@@ -60,7 +60,7 @@ class Groups extends BaseModel
       user_id: userId
       access_level: accessLevel
 
-    @post "groups/#{parseInt groupId}/members", params, (data) -> fn data if fn
+    @post "groups/#{parseInt groupId}/members", params, (err, data) -> fn(err, data) if fn
 
   editMember: (groupId, userId, accessLevel, fn = null) =>
     @debug "Groups::editMember(#{groupId}, #{userId}, #{accessLevel})"
